@@ -1,0 +1,36 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+*.dll
+*.pdb
+bin/
+obj/
+
+# Temp backup files
+*.tmp
+*.~*
+
+# Rider / JetBrains
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# NuGet
+*.nupkg
+project.lock.json
+*.nuget.props
+*.nuget.targets
+
+
+*.db
+*.sqlite
+localMessages.db
+test_messages.db
+
+# NuGet / .NET restore artifacts
+*.dgspec.json
+.cache/
