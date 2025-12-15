@@ -35,7 +35,7 @@ namespace ApiIntegrationTest.Tests
     {
         [Theory]
         [ClassData(typeof(OutboxMessageData))]
-        public async Task ReplayPendingMessageAsyncTest(List<OutboxMessage> messages)
+        public async Task ReplayPendingMessageAsync_ShouldSentMessage(List<OutboxMessage> messages)
         {
             // Arrange
             var onlyPending = messages
@@ -107,7 +107,7 @@ namespace ApiIntegrationTest.Tests
 
         [Theory]
         [ClassData(typeof(OutboxMessageData))]
-        public async Task ReplayPendingMessageAsync_Cast_Simulatted_Exception(List<OutboxMessage> messages)
+        public async Task ReplayPendingMessageAsync_Cast_Simulated_Exception(List<OutboxMessage> messages)
         {
             // Arrange
             var onlyPending = messages
@@ -125,7 +125,6 @@ namespace ApiIntegrationTest.Tests
 
             var api = new Mock<ICustomerApiClient>();
             api.Setup(a => a.SendAsync(It.IsAny<OutboxMessage>())).ThrowsAsync(new InvalidOperationException("Simulated failure"));
-            //api.Setup(a => a.SendAsync(It.IsAny<OutboxMessage>())).ReturnsAsync(ApiResult.Ok);
 
             var cancellationToken = CancellationToken.None;
 

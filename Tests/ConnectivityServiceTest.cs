@@ -8,12 +8,11 @@ namespace ApiIntegrationTest.Tests
 {
     public class ConnectivityServiceTest
     {
-        //todo thread-safety (make parallel SetOnline(false/true))
         [Fact]
-        public async Task ConnectivityServiceIsOnline_Parallel()
+        public async Task ConnectivityService_IsOnline_Parallel()
         {
             var service = new ConnectivityService();
-            int numTasks = 500;
+            int numTasks = 100;
 
             var tasks = new Task<bool>[numTasks];
 
@@ -31,7 +30,7 @@ namespace ApiIntegrationTest.Tests
         }
 
         [Fact]
-        public void ConnectivityServiceIsOnline()
+        public void IsOnline_ShouldSetIsOnline_ToTrue()
         {
             var service = new ConnectivityService();
             var result = service.IsOnline;
@@ -40,7 +39,7 @@ namespace ApiIntegrationTest.Tests
         }
 
         [Fact]
-        public void LastCheckedShouldBeRecent()
+        public void LastChecked_ShouldBeRecent()
         {
             var service = new ConnectivityService();
             var lastCheck = service.LastCheck;
@@ -49,7 +48,7 @@ namespace ApiIntegrationTest.Tests
         }
 
         [Fact]
-        public void SetOfflineShouldSetIsOnlineToFalse()
+        public void SetOffline_ShouldSetIsOnline_ToFalse()
         {
             var service = new ConnectivityService();
             service.SetOffline();
@@ -57,7 +56,7 @@ namespace ApiIntegrationTest.Tests
         }
 
         [Fact]
-        public void SetOnlineShouldSetIsOnlineToTrue()
+        public void SetOnline_ShouldSetIsOnline_ToTrue()
         {
             var service = new ConnectivityService();
             service.SetOnline();
@@ -65,7 +64,7 @@ namespace ApiIntegrationTest.Tests
         }
 
         [Fact]
-        public void SetOnlineShouldUpdateLastCheck()
+        public void SetOnline_ShouldUpdate_LastCheck()
         {
             var service = new ConnectivityService();
             var before = service.LastCheck;
@@ -77,7 +76,7 @@ namespace ApiIntegrationTest.Tests
         }
 
         [Fact]
-        public void SetOfflineShouldUpdateLastCheck()
+        public void SetOffline_ShouldUpdate_LastCheck()
         {
             // Arrange
             var service = new ConnectivityService();

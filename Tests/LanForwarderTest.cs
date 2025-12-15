@@ -16,7 +16,7 @@ namespace ApiIntegrationTest.Tests
     public class LanForwarderTest
     {
         [Fact]
-        public async Task ForwardJobAsyncReturnsTrueOnSuccess()
+        public async Task ForwardJobAsyncReturns_TrueOnSuccess()
         {
             // Arrange
             var fakeResponse = new HttpResponseMessage(HttpStatusCode.OK)
@@ -65,7 +65,7 @@ namespace ApiIntegrationTest.Tests
         [InlineData(HttpStatusCode.Forbidden, false)]
         [InlineData(HttpStatusCode.BadRequest, false)]
         [InlineData(HttpStatusCode.BadGateway, false)]
-        public async Task ForwardJobAsync(HttpStatusCode statusCode, bool expected)
+        public async Task ForwardJobAsync_ShouldReturnCorrect_StatusCode(HttpStatusCode statusCode, bool expected)
         {
             // Arrange
             var fakeResponse = new HttpResponseMessage(statusCode)

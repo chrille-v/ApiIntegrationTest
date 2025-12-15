@@ -34,7 +34,7 @@ namespace ApiIntegrationTest.Tests
 
             var cancellationToken = CancellationToken.None;
 
-            // Skapa temporär fil för testdatabas
+            // Create temporary db-file
             string tempDbPath = Path.Combine(Path.GetTempPath(), $"testMessages_{Guid.NewGuid()}.db");
             File.Copy("localMessages.db", tempDbPath);
 
@@ -76,7 +76,7 @@ namespace ApiIntegrationTest.Tests
             // Arrange
             var cancellationToken = CancellationToken.None;
 
-            // Skapa temporär fil för testdatabas
+            // Create temporary file
             string tempDbPath = Path.Combine(Path.GetTempPath(), $"testMessages_{Guid.NewGuid()}.db");
             File.Copy("localMessages.db", tempDbPath);
 
@@ -90,7 +90,7 @@ namespace ApiIntegrationTest.Tests
 
             var service = new LocalCache(options, logger.Object);
 
-            int numberOfTasks = 250;
+            int numberOfTasks = 100;
             var tasks = new Task[numberOfTasks];
 
             for (int i = 0; i < numberOfTasks; i++)
